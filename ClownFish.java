@@ -6,7 +6,7 @@ public class ClownFish extends SeaCreature {
     private int count;
 
     public ClownFish(String name, int position, int speed, int direction, String normalSymbol, String smileSymbol, int maxCount) {
-        super(name, position, speed, direction);
+        super(name, position, speed, direction, 8);
         this.normalSymbol = normalSymbol;
         this.smileSymbol = smileSymbol;
         this.maxCount = maxCount;
@@ -20,6 +20,7 @@ public class ClownFish extends SeaCreature {
             position += speed * direction;
             keepInsideTank(tankWidth);
             count--;
+            currentHunger--;
         }
         else {
             count = maxCount;
@@ -30,6 +31,11 @@ public class ClownFish extends SeaCreature {
     public String getSymbol() {
         String symbol = count > 0 ? normalSymbol : smileSymbol;
         return direction >= 0 ? symbol : reverseSymbol(symbol);
+    }
+
+    @Override
+    public void feed(int foodAmt) {
+        currentHunger = Math.min(currentHunger + foodAmt, maxHunger);
     }
 
     private String reverseSymbol(String text) {

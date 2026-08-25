@@ -38,6 +38,14 @@ public abstract class SeaCreature {
         return direction;
     }
 
+    public String getHungerStats() {
+        return "(" + currentHunger + "/" + maxHunger + ")";
+    }
+
+    public int getCurrentHunger() {
+        return currentHunger;
+    }
+
     public void setPosition(int position) {
         this.position = position;
     }

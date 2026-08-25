@@ -39,17 +39,24 @@ public class Aquarium {
         System.out.println();
         System.out.println("Advancing to turn " + turnNumber + "...");
 
-        for (SeaCreature creature : creatures) {
+        for (int i = 0; i < creatures.length; i++) {
+            SeaCreature creature = creatures[i];
             if (creature != null) {
                 int oldPosition = creature.getPosition();
                 creature.move(TANK_WIDTH);
+                if(creature.getCurrentHunger() > 0) {
 
-                System.out.println(
-                        creature.getName()
-                                + " moved from " + oldPosition
-                                + " to " + creature.getPosition()
-                                + "."
-                );
+                    System.out.println(
+                            creature.getName()
+                                    + " moved from " + oldPosition
+                                    + " to " + creature.getPosition()
+                                    + "."
+                    );
+                }
+                else {
+                    creatures[i] = null;
+                    System.out.println(creature.getName() + " died of starvation");
+                }
             }
         }
     }
@@ -77,6 +84,13 @@ public class Aquarium {
         return creatures;
     }
 
+    public void feedAll() {
+        for (SeaCreature creature : creatures) {
+            if (creature != null)
+                creature.feed(100);
+        }
+    }
+
     public int getTurnNumber() {
         return turnNumber;
     }
@@ -95,7 +109,7 @@ public class Aquarium {
 
         return "|" + new String(lane) + "| "
                 + creature.getName() + " ("
-                + creature.getClass().getSimpleName() + ")";
+                + creature.getClass().getSimpleName() + ") - Hunger: " + creature.getHungerStats();
     }
 
     private String center(String text, int width) {

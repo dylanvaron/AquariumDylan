@@ -5,7 +5,7 @@ public class Jellyfish extends SeaCreature {
     private boolean charging;
 
     public Jellyfish(String name, int position, int speed, int direction, String openSymbol, String closedSymbol) {
-        super(name, position, speed, direction);
+        super(name, position, speed, direction, 5);
         this.openSymbol = openSymbol;
         this.closedSymbol = closedSymbol;
         charging = false;
@@ -17,6 +17,7 @@ public class Jellyfish extends SeaCreature {
             position += speed * direction;
             keepInsideTank(tankWidth);
             charging = false;
+            currentHunger--;
         }
         else {
             charging = true;
@@ -27,6 +28,11 @@ public class Jellyfish extends SeaCreature {
     public String getSymbol() {
         String symbol = charging ? openSymbol : closedSymbol;
         return direction >= 0 ? symbol : reverseSymbol(symbol);
+    }
+
+    @Override
+    public void feed(int foodAmt) {
+        currentHunger = Math.min(currentHunger + foodAmt, maxHunger);
     }
 
     private String reverseSymbol(String text) {

@@ -4,12 +4,16 @@ public abstract class SeaCreature {
     protected int position;
     protected int speed;
     protected int direction;
+    protected int maxHunger;
+    protected int currentHunger;
 
-    public SeaCreature(String name, int position, int speed, int direction) {
+    public SeaCreature(String name, int position, int speed, int direction, int maxHunger) {
         this.name = name;
         this.position = position;
         this.speed = speed;
         this.direction = direction;
+        this.maxHunger = maxHunger;
+        currentHunger = maxHunger;
     }
 
     // Each subclass decides how it moves.
@@ -63,6 +67,9 @@ public abstract class SeaCreature {
     public String getDirectionWord() {
         return direction >= 0 ? "right" : "left";
     }
+
+    // Each subclass gets to determine the frequency of hunger checks and the amount decremented each turn
+    public abstract void feed(int foodAmt);
 
     @Override
     public String toString() {

@@ -1,0 +1,17 @@
+1. Give one example of inheritance in your project. What was inherited?
+The Jellyfish class inherited from the SeaCreature class. Jellyfish inherited speed, position, symbol, ect ect ect ect ect ect ect ect ect ect ect ect ect ect ect ect ect ect ect ect ect ect ect ect.
+
+2. Give one example of method overriding. Why did the subclass need its own version of the method?
+I overrode the move method from SeaCreature. I had to override it because each class moves uniquely.
+
+3. Why can a SeaCreature[] contain Fish, Shark, Turtle, and other subclasses?
+Because Fish, Jellyfish, and ClownFish are all children of the SeaCreature class. Therefore, they can all live inside of a SeaCreature array.
+
+4. Describe one example from the Reference Lab that demonstrates two variables referring to the same object.
+The first experiment, aliasing, has two variables referring to the same object. In this case, both the nemo and copy objects point to a fish named Nemo with a speed of 3.
+
+5. Which Git commit best represents meaningful progress in your project? Why?
+I would say the "Added hunger and starvation" commit was the most meaningful in terms of progress. That commit was when I finished giving Aquarium my own unique twist that makes it different.
+
+6. If this aquarium had 1,000 creatures, what part of your design would you want to reconsider?
+I would change the creatures array to an ArrayList. This makes it much easier to to manage a creature array of that size.

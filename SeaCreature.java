@@ -7,13 +7,18 @@ public abstract class SeaCreature {
     protected int maxHunger;
     protected int currentHunger;
 
-    public SeaCreature(String name, int position, int speed, int direction, int maxHunger) {
-        this.name = name;
-        this.position = position;
-        this.speed = speed;
-        this.direction = direction;
-        this.maxHunger = maxHunger;
-        currentHunger = maxHunger;
+    public SeaCreature(String name, int position, int speed, int direction, int maxHunger) throws InvalidCreatureException {
+        if(name != null && position >= 0 && speed >= 0 && (direction == -1 || direction == 1) && maxHunger >= 1) {
+            this.name = name;
+            this.position = position;
+            this.speed = speed;
+            this.direction = direction;
+            this.maxHunger = maxHunger;
+            currentHunger = maxHunger;
+        }
+        else {
+            throw new InvalidCreatureException("Invalid value in creature construction");
+        }
     }
 
     // Each subclass decides how it moves.

@@ -5,13 +5,12 @@ public class ClownFish extends SeaCreature {
     private int maxCount;
     private int count;
 
-    public ClownFish(String name, int position, int speed, int direction, String normalSymbol, String smileSymbol, int maxCount) {
+    public ClownFish(String name, int position, int speed, int direction, String normalSymbol, String smileSymbol, int maxCount) throws InvalidCreatureException {
         super(name, position, speed, direction, 8);
         this.normalSymbol = normalSymbol;
         this.smileSymbol = smileSymbol;
         this.maxCount = maxCount;
         count = maxCount;
-
     }
 
     @Override

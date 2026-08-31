@@ -11,7 +11,7 @@ public class Aquarium {
         this.creatures = creatures;
         this.turnNumber = 0;
     }
-
+    // Creates the main game display that shows teh ASCII fish, their name, and hunger value
     public void display() {
         System.out.println();
         System.out.println("TURN " + turnNumber);
@@ -32,7 +32,7 @@ public class Aquarium {
 
         System.out.println("+" + "-".repeat(TANK_WIDTH) + "+");
     }
-
+    // Shows the ASCII display again, but advances the fish position and hunger
     public void advanceTurn() {
         turnNumber++;
 
@@ -60,7 +60,7 @@ public class Aquarium {
             }
         }
     }
-
+    // Lists all of the creatures in the aquarium and their current stats
     public void listCreatureDetails() {
         System.out.println();
         System.out.println("CREATURE DETAILS");
@@ -84,6 +84,7 @@ public class Aquarium {
         return creatures;
     }
 
+    // Maxes all fishs hunger values.
     public void feedAll() {
         for (SeaCreature creature : creatures) {
             if (creature != null)
@@ -95,6 +96,7 @@ public class Aquarium {
         return turnNumber;
     }
 
+    // Builds a new lane for a fish, used when making the display
     private String buildLane(SeaCreature creature) {
         char[] lane = new char[TANK_WIDTH];
         Arrays.fill(lane, ' ');

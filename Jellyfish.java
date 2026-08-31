@@ -4,7 +4,7 @@ public class Jellyfish extends SeaCreature {
     private String closedSymbol;
     private boolean charging;
 
-    public Jellyfish(String name, int position, int speed, int direction, String openSymbol, String closedSymbol) {
+    public Jellyfish(String name, int position, int speed, int direction, String openSymbol, String closedSymbol) throws InvalidCreatureException {  
         super(name, position, speed, direction, 5);
         this.openSymbol = openSymbol;
         this.closedSymbol = closedSymbol;

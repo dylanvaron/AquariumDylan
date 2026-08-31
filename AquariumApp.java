@@ -6,11 +6,46 @@ public class AquariumApp {
 
         SeaCreature[] tank = new SeaCreature[8];
 
-        // Two starter creatures.
-        tank[0] = new Fish("Nemo", 4, 3, 1, "><>");
-        tank[1] = new Fish("Dory", 30, 2, -1, "><((('>");
-        tank[2] = new Jellyfish("Marmalade", 10, 6, 1, ">o", "=o");
-        tank[3] = new ClownFish("Bozo", 6, 4, 1, "><  >", "><;)>", 4);
+        // Four starter creatures.
+        try {
+            tank[0] = new Fish("Nemo", 4, 3, 1, "><>");
+        }
+        catch(InvalidCreatureException e) {
+            System.out.println("Invalid creature made.");
+            System.out.println(e.getMessage());
+        }
+        
+        try {
+            tank[1] = new Fish("Dory", 30, 2, -1, "><((('>");
+        }
+        catch(InvalidCreatureException e) {
+            System.out.println("Invalid creature made.");
+            System.out.println(e.getMessage());
+        }
+        
+        try {
+            tank[2] = new Jellyfish("Marmalade", 10, 6, 1, ">o", "=o");
+        }
+        catch(InvalidCreatureException e) {
+            System.out.println("Invalid creature made.");
+            System.out.println(e.getMessage());
+        }
+        
+        try {
+            tank[3] = new ClownFish("Bozo", 6, 4, 1, "><  >", "><;)>", 4);
+        }
+        catch(InvalidCreatureException e) {
+            System.out.println("Invalid creature made.");
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            tank[4] = new ClownFish("Bozo", -6, 4, 1, "><  >", "><;)>", 4);
+        }
+        catch(InvalidCreatureException e) {
+            System.out.println("Invalid creature made.");
+            System.out.println(e.getMessage());
+        }
 
         // =====================================================
         // STUDENT TODO
@@ -32,11 +67,13 @@ public class AquariumApp {
         System.out.println("        JAVA TERMINAL AQUARIUM");
         System.out.println("====================================");
 
+        // The game loop
         while (running) {
             printMenu();
             System.out.print("Choose an option: ");
             String choice = input.nextLine().trim();
 
+            // Switch statement handles menu options
             switch (choice) {
                 case "1":
                     aquarium.display();

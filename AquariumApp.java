@@ -163,3 +163,12 @@ public class AquariumApp {
         System.out.println("5. Quit");
     }
 }
+/*
+Final Challenge:
+We don't want SeaCreature direcly printing an error message itself because we want to leave it up to AquariumApp to decide how to handle that error.
+By having SeaCreature throw the error instead of handling itself, it allows for AquariumApp to catch that error and handle it by itself.
+This is preferable to having SeaCreature handle the error because it is good program design to allow the frontend to determine how to handle an exception.
+
+
+
+*/

@@ -32,15 +32,64 @@ public class AquariumApp {
         }
         
         try {
-            tank[3] = new ClownFish("Bozo", 6, 4, 1, "><  >", "><;)>", 4);
+            tank[3] = new ClownFish("Bozo", 6, 4, 1, "><>";
         }
         catch(InvalidCreatureException e) {
             System.out.println("Invalid creature made.");
             System.out.println(e.getMessage());
         }
 
+        /*
+        Test 1
+        Invalid input:
+            Position
+        What should happen?
+            This fish is not constructed or even added to the tank array.
+        What actually happened?
+            The fish was not constructed and printed the error message.
+        Did the program continue running?
+            Yes
+        */
         try {
-            tank[4] = new ClownFish("Bozo", -6, 4, 1, "><  >", "><;)>", 4);
+            tank[4] = new Fish("Broken Position", -6, 4, 1, "><>");
+        }
+        catch(InvalidCreatureException e) {
+            System.out.println("Invalid creature made.");
+            System.out.println(e.getMessage());
+        }
+        
+        /*
+        Test 2
+        Invalid input:
+            Speed
+        What should happen?
+            This fish is not constructed or even added to the tank array.
+        What actually happened?
+            The fish was not constructed and printed the error message.
+        Did the program continue running?
+            Yes
+        */
+        try {
+            tank[4] = new Fish("Broken Speed", 6, -4, 1, "><>");
+        }
+        catch(InvalidCreatureException e) {
+            System.out.println("Invalid creature made.");
+            System.out.println(e.getMessage());
+        }
+
+        /*
+        Test 3
+        Invalid input:
+            Direction
+        What should happen?
+            This fish is not constructed or even added to the tank array.
+        What actually happened?
+            The fish was not constructed and printed the error message.
+        Did the program continue running?
+            Yes
+        */
+        try {
+            tank[4] = new Fish("Broken Direction", 6, 4, 0, "><>");
         }
         catch(InvalidCreatureException e) {
             System.out.println("Invalid creature made.");

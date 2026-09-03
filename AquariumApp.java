@@ -32,7 +32,7 @@ public class AquariumApp {
         }
         
         try {
-            tank[3] = new ClownFish("Bozo", 6, 4, 1, "><>";
+            tank[3] = new ClownFish("Bozo", 6, 4, 1, "><  >", "><;)>", 3);
         }
         catch(InvalidCreatureException e) {
             System.out.println("Invalid creature made.");

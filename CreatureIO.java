@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class CreatureIO {
     
-    private static SeaCreature[] loadCreatures(String fileName) throws IOException {
+    public static SeaCreature[] loadCreatures(String fileName) throws IOException {
         FileReader file = new FileReader(fileName);
         Scanner input = new Scanner(file);
         int numberOfCreatures = input.nextInt();
@@ -20,7 +20,7 @@ public class CreatureIO {
         return tank;
     }
 
-    private static SeaCreature createCreature(String line) {
+    public static SeaCreature createCreature(String line) {
         Scanner data = new Scanner(line);
         data.useDelimiter(",");
         String classType = data.next();
@@ -28,14 +28,32 @@ public class CreatureIO {
         int position = data.nextInt();
         int speed = data.nextInt();
         int direction = data.nextInt();
+        String symbol = data.next();
 
-        switch(classType) {
-            case "Fish":
-                String symbol = data.next();
-                return new Fish(name,position,speed,direction,symbol);
-                break;
-            default:
-                return null;
+        try {
+            switch(classType) {
+                case "Fish":
+                    data.close();
+                    return new Fish(name,position,speed,direction,symbol);
+                case "Jellyfish":
+                    String symbol2 = data.next();
+                    data.close();
+                    return new Jellyfish(name,position,speed,direction,symbol,symbol2);
+                case "ClownFish":
+                    String symbolSmile = data.next();
+                    int maxCount = data.nextInt();
+                    data.close();
+                    return new ClownFish(name,position,speed,direction,symbol,symbolSmile,maxCount);
+                default:
+                    data.close();
+                    return null;
+            }
+        }
+        catch(InvalidCreatureException e) {
+            System.out.println("Invalid creature made.");
+            System.out.println(e.getMessage());
+            data.close();
+            return null;
         }
 
     }

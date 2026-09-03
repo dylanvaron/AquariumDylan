@@ -1,101 +1,17 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class AquariumApp {
 
     public static void main(String[] args) {
 
-        // Testing to see if the new branch was made
-
         SeaCreature[] tank = new SeaCreature[8];
 
-        // Four starter creatures.
-        try {
-            tank[0] = new Fish("Nemo", 4, 3, 1, "><>");
+        try {        
+            tank = CreatureIO.loadCreatures("creatures.txt");
         }
-        catch(InvalidCreatureException e) {
-            System.out.println("Invalid creature made.");
-            System.out.println(e.getMessage());
-        }
-        
-        try {
-            tank[1] = new Fish("Dory", 30, 2, -1, "><((('>");
-        }
-        catch(InvalidCreatureException e) {
-            System.out.println("Invalid creature made.");
-            System.out.println(e.getMessage());
-        }
-        
-        try {
-            tank[2] = new Jellyfish("Marmalade", 10, 6, 1, ">o", "=o");
-        }
-        catch(InvalidCreatureException e) {
-            System.out.println("Invalid creature made.");
-            System.out.println(e.getMessage());
-        }
-        
-        try {
-            tank[3] = new ClownFish("Bozo", 6, 4, 1, "><  >", "><;)>", 3);
-        }
-        catch(InvalidCreatureException e) {
-            System.out.println("Invalid creature made.");
-            System.out.println(e.getMessage());
-        }
-
-        /*
-        Test 1
-        Invalid input:
-            Position
-        What should happen?
-            This fish is not constructed or even added to the tank array.
-        What actually happened?
-            The fish was not constructed and printed the error message.
-        Did the program continue running?
-            Yes
-        */
-        try {
-            tank[4] = new Fish("Broken Position", -6, 4, 1, "><>");
-        }
-        catch(InvalidCreatureException e) {
-            System.out.println("Invalid creature made.");
-            System.out.println(e.getMessage());
-        }
-        
-        /*
-        Test 2
-        Invalid input:
-            Speed
-        What should happen?
-            This fish is not constructed or even added to the tank array.
-        What actually happened?
-            The fish was not constructed and printed the error message.
-        Did the program continue running?
-            Yes
-        */
-        try {
-            tank[4] = new Fish("Broken Speed", 6, -4, 1, "><>");
-        }
-        catch(InvalidCreatureException e) {
-            System.out.println("Invalid creature made.");
-            System.out.println(e.getMessage());
-        }
-
-        /*
-        Test 3
-        Invalid input:
-            Direction
-        What should happen?
-            This fish is not constructed or even added to the tank array.
-        What actually happened?
-            The fish was not constructed and printed the error message.
-        Did the program continue running?
-            Yes
-        */
-        try {
-            tank[4] = new Fish("Broken Direction", 6, 4, 0, "><>");
-        }
-        catch(InvalidCreatureException e) {
-            System.out.println("Invalid creature made.");
-            System.out.println(e.getMessage());
+        catch (IOException e) {
+            System.out.println(e);
         }
 
         // =====================================================

@@ -6,9 +6,9 @@ public class AquariumApp {
     public static void main(String[] args) {
 
         SeaCreature[] tank = new SeaCreature[8];
-
+        
         try {        
-            tank = CreatureIO.loadCreatures("creatures.txt");
+            tank = CreatureIO.loadCreatures("AquariumDylan\\creatures.txt");
         }
         catch (IOException e) {
             System.out.println(e);

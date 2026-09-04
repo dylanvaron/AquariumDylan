@@ -1,5 +1,5 @@
 4
-Fish,Nemo,4,3,1,><>
-Fish,Dory,30,2,-1,><((('>
+Fish,Marlin,4,3,1,><>
+ClownFish,Bozo,6,6,-1,><  >,><;)>,3
 Jellyfish,Marmalade,10,6,1,>o,=o
-ClownFish,Bozo,6,4,1,><  >,><;)>,3
+Fish,Dory,25,2,-1,><((('>
